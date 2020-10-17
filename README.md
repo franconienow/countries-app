@@ -1,6 +1,7 @@
 # Countries App
 
-### App para consulta de países desenvolvido como desafio do site Front-end Mentor [frontendmentor.io](frontendmentor.io).
+### App para consulta de países desenvolvido como desafio do site Front-end Mentor <br />
+[https://www.frontendmentor.io/challenges](https://www.frontendmentor.io/challenges).
 ---
 ### Technologies
 
