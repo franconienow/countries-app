@@ -1,0 +1,18 @@
+.main-container{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.cardsContainer{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 10vh;
+  column-gap: 6%;
+  justify-items: center;
+}
+.inputContainer{
+  padding-bottom: 3vh;
+  padding-top: 3vh;
+  display: flex;
+  justify-content: space-between;
+}
