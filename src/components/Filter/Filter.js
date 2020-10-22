@@ -4,6 +4,21 @@ import { FilterBox, FilterContent, Region, FilterBtn, ArrowIcon } from "./Filter
 const Filter = (props) =>{
 
   const [switcher, setSwitcher] = useState("none");
+  const [currentFilter, setCurrentFilter] = useState("Filter by Region");
+
+  const regionList = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+
+  const handleClick = (e) => {
+    setCurrentFilter(e.target.innerText);
+    toggleMenu()
+    props.onClick(e)
+  } 
+
+  const createElements = () => {
+    return(
+      regionList.map(region => <Region key={region} theme={props.theme} onClick={handleClick}>{region}</Region>)
+    )  
+  }
 
   const toggleMenu = () => {
     if(switcher === "none"){
@@ -15,14 +30,9 @@ const Filter = (props) =>{
 
   return(
     <FilterBox>
-      <FilterBtn onClick={toggleMenu} className="dropbtn">Filter by Region <ArrowIcon/></FilterBtn>
-      <FilterContent toggleShow={switcher}>
-        <Region onClick={props.onClick}>All</Region>
-        <Region onClick={props.onClick}>Africa</Region>
-        <Region onClick={props.onClick}>Americas</Region>
-        <Region onClick={props.onClick}>Asia</Region>
-        <Region onClick={props.onClick}>Europe</Region>
-        <Region onClick={props.onClick}>Oceania</Region>
+      <FilterBtn theme={props.theme} onClick={toggleMenu} className="dropbtn">{currentFilter}<ArrowIcon theme={props.theme} /></FilterBtn>
+      <FilterContent theme={props.theme} toggleShow={switcher}>
+        {createElements()}
       </FilterContent>
     </FilterBox>
   );

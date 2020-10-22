@@ -10,7 +10,6 @@ export default createGlobalStyle`
     font-family: 'Nunito Sans', sans-serif;
     font-size: 1.2rem;
     font-weight: 300;
-    background-color: #202c37;
-    color: hsl(0, 0%, 100%);
+    background-color: ${props => props.theme === 'dark' ? "hsl(207, 26%, 17%)" : "hsl(0, 0%, 98%)"};
   }
 `

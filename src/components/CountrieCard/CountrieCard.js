@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const CountrieCard = props =>{
   return(
     <Link style={{ textDecoration: 'none', color: 'white' }} to={`/details/${props.code}`}>
-      <Card>
+      <Card theme={props.theme}>
         <Flag src={props.flag} alt={props.name}/>
         <CardInfoContainer>
           <CardInfo>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link , useParams } from "react-router-dom";
-import { InfoContainer, Flag, InfoDiv, CName, InfoCol, NeighborBtn } from "./DetailsPage.style";
+import { InfoContainer, Flag, InfoDiv, CName, InfoCol, NeighborBtn, BackBtn, BackIcon } from "./DetailsPage.style";
 import { Info } from '../CountrieCard/CountrieCard.style';
 
-function DetailsPage(){
+function DetailsPage(props){
 
   let { id } = useParams();
   
@@ -11,28 +11,25 @@ function DetailsPage(){
   const [neighbors, setNeighbors] = useState([])
 
   useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
+      const data = await res.json()
+      setCountry(data)
+    };
     fetchData();
   }, [id])
 
   useEffect(() => {
+    const fetchBordersData = async () => {
+      if(country.borders !== undefined && country.borders.length > 0){
+        const res = await fetch(`https://restcountries.eu/rest/v2/alpha?codes=${country.borders.join(';')}`);
+        const data = await res.json()
+        setNeighbors(data.map(country => {return {name: country.name, id: country.alpha3Code}}));
+      }
+    };
     fetchBordersData()
   }, [country])
 
-  const fetchData = async () => {
-    const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
-    const data = await res.json()
-    setCountry(data)
-  };
-
-  const fetchBordersData = async () => {
-    if(country.borders !== undefined && country.borders.length > 0){
-      const res = await fetch(`https://restcountries.eu/rest/v2/alpha?codes=${country.borders.join(';')}`);
-      const data = await res.json()
-
-      setNeighbors(data.map(country => {return {name: country.name, id: country.alpha3Code}}));
-    }
-  };
-  
   const renderCurrencies = (curr) => {
     if(curr !== undefined){
       return curr.map(c => c.name).join(", ");
@@ -48,7 +45,10 @@ function DetailsPage(){
   const renderBorders = countryList => {
     if(countryList !== undefined){
       return countryList.map((c) => {
-        return <Link key={c.id} style={{ textDecoration: 'none', color: 'white' }} to={`/details/${c.id}`}><NeighborBtn>{c.name}</NeighborBtn></Link>       
+        return (
+        <Link key={c.id} style={{ textDecoration: 'none', color: 'white' }} to={`/details/${c.id}`}>
+          <NeighborBtn theme={props.theme}>{c.name.length < 12? c.name: c.id}</NeighborBtn>
+        </Link>)       
       }) 
     }
   };
@@ -56,10 +56,11 @@ function DetailsPage(){
   return(
     <div>
       <Link 
-      style={{ textDecoration: 'none', color: 'white' }} to={`/`}><NeighborBtn>Back</NeighborBtn></Link>
+        style={{ textDecoration: 'none', color: 'white' }} to={`/`}><BackBtn theme={props.theme}><BackIcon theme={props.theme}/>Back</BackBtn>
+      </Link>
       <InfoContainer key={country.id}>
         <Flag src={country.flag} alt={country.name}/>
-          <InfoDiv>
+          <InfoDiv theme={props.theme}>
             <CName>{country.name}</CName>
             <InfoCol display={'inline'} columnSpace={'1'}>
               <p><Info>Native Name: </Info>{country.nativeName}</p>

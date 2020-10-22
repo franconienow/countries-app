@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Card = styled.div`
   width: 18vw;
   height: 44vh;
-  background: hsl(209, 23%, 22%);
+  background: ${props => props.theme === 'dark' ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)"};
+  color: ${props => props.theme === 'dark' ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)"};
   border-radius: 8px 8px 8px 8px;
-  box-shadow: 10px 10px 10px #1E2934;
+  box-shadow: 2px 2px 10px -2px rgba(0,0,0,0.24);
 `;
 
 export const Flag = styled.img`
