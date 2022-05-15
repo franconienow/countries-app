@@ -20,7 +20,7 @@
 
 Este projeto foi iniciado com [Create React App](https://github.com/facebook/create-react-app).
 
-No diretorio do projeto voçe deve rodar:
+Rodando o projeto:
 
 ### `npm install`
 
