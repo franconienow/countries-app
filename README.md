@@ -9,7 +9,7 @@ App para consulta de países desenvolvido como desafio do [Front-end Mentor](htt
 - React
 - StyledComponets
 
-![gif](https://github.com/franconienow/countries-app/blob/master/screenshots/gif-demo.gif)
+![gif](https://github.com/franconienow/countries-app/blob/main/screenshots/gif-demo.gif)
 ---
 ![screenshot](https://github.com/franconienow/countries-app/blob/master/screenshots/screenshot1.png)
 ---
