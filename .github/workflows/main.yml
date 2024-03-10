@@ -3,7 +3,7 @@ name: Deploy React App to Firebase Hosting
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
@@ -25,9 +25,8 @@ jobs:
 
     - name: Deploy to Firebase Hosting
       uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          firebase_project_id: ${{ env.FIREBASE_PROJECT_ID }}
-          firebase_token: ${{ env.FIREBASE_TOKEN }}
-          public_directory: ${{ env.PUBLIC_DIRECTORY }}
-          target: live
-
+      with:
+        firebase_project_id: ${{ env.FIREBASE_PROJECT_ID }}
+        firebase_token: ${{ env.FIREBASE_TOKEN }}
+        public_directory: ${{ env.PUBLIC_DIRECTORY }}
+        target: live
