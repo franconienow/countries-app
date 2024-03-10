@@ -3,7 +3,7 @@ name: Deploy React App to Firebase Hosting
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
