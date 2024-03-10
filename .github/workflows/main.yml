@@ -12,19 +12,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions/setup-node@v2
+
+        with:
+          node-version: '16'
+
       - name: Install dependencies
 
-        run: npm install
+        run: npm install --node-version '16'
 
       - name: Build the app
 
-        run: npm run build
+        run: npm run build --node-version '16'
 
       - name: Deploy to GitHub Pages
 
         uses: JamesIves/github-pages-deploy-action@4.1.4
 
         with:
-          branch: gh-pages # Nome da branch do GitHub Pages
-          folder: build # Pasta com os arquivos build da aplicação
-          token: ${{ secrets.GITHUB_TOKEN }} # Token do GitHub Actions
+          branch: gh-pages
+          folder: build
+          token: ${{ secrets.GITHUB_TOKEN }}
