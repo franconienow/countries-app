@@ -1,0 +1,30 @@
+name: Deploy React App
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+
+        run: npm install
+
+      - name: Build the app
+
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+
+        with:
+          branch: gh-pages # Nome da branch do GitHub Pages
+          folder: build # Pasta com os arquivos build da aplicação
+          token: ${{ secrets.GITHUB_TOKEN }} # Token do GitHub Actions
