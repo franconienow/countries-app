@@ -1,43 +1,33 @@
-name: Deploy React App
+name: Deploy React App to Firebase Hosting
 
 on:
   push:
     branches:
       - master
 
+env:
+  FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  PUBLIC_DIRECTORY: build
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2
+    - name: Install dependencies
+      run: npm install
 
+    - name: Build React app
+      run: npm run build
+
+    - name: Deploy to Firebase Hosting
+      uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          node-version: '16'
+          firebase_project_id: ${{ env.FIREBASE_PROJECT_ID }}
+          firebase_token: ${{ env.FIREBASE_TOKEN }}
+          public_directory: ${{ env.PUBLIC_DIRECTORY }}
+          target: live
 
-      - name: Install dependencies
-
-        run: npm install --node-version '16'
-
-      - name: Build the app
-
-        run: npm run build --node-version '16'
-
-      - name: Generate CNAME content
-
-        run: echo "franconienow.github.io" > CNAME
-
-      - name: Add CNAME to build directory
-
-        run: cp CNAME build/
-
-      - name: Deploy to GitHub Pages
-
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-
-        with:
-          branch: gh-pages
-          folder: build
-          token: ${{ secrets.GITHUB_TOKEN }}
