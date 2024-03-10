@@ -1,14 +1,11 @@
 # Countries App
 
 ### App para consulta de países desenvolvido como desafio do site Front-end Mentor <br />
-[https://www.frontendmentor.io/challenges](https://www.frontendmentor.io/challenges).
 ---
 ### Technologies
 
 - React
 - StyledComponets
-- HTML
-- CSS
 
 ---
 ![gif](https://github.com/franconienow/countries-app/blob/master/screenshots/gif-demo.gif)
