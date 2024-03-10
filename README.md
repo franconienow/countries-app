@@ -11,9 +11,9 @@ App para consulta de países desenvolvido como desafio do [Front-end Mentor](htt
 
 ![gif](https://github.com/franconienow/countries-app/blob/main/screenshots/gif-demo.gif)
 ---
-![screenshot](https://github.com/franconienow/countries-app/blob/master/screenshots/screenshot1.png)
+![screenshot](https://github.com/franconienow/countries-app/blob/main/screenshots/screenshot1.png)
 ---
-![screenshot](https://github.com/franconienow/countries-app/blob/master/screenshots/screenshot2.png)
+![screenshot](https://github.com/franconienow/countries-app/blob/main/screenshots/screenshot2.png)
 ---
 
 Como rodar o projeto:
