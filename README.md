@@ -1,6 +1,6 @@
 # Countries App
 
-URL do projeto no Firebase: [https://countries-app-e3a39.web.app/](countries-app-e3a39.web.app)
+URL do projeto no Firebase: [countries-app-e3a39.web.app](https://countries-app-e3a39.web.app/)
 
 App para consulta de países desenvolvido como desafio do [Front-end Mentor](https://www.frontendmentor.io/) <br />
 
