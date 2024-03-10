@@ -30,7 +30,6 @@ jobs:
     - name: Deploy to Firebase Hosting
       uses: FirebaseExtended/action-hosting-deploy@v0
       with:
-        firebase_project_id: ${{ env.FIREBASE_PROJECT_ID }}
-        firebase_token: ${{ env.FIREBASE_TOKEN }}
-        public_directory: ${{ env.PUBLIC_DIRECTORY }}
-        target: live
+        projectId: ${{ env.FIREBASE_PROJECT_ID }}
+        repoToken: ${{ env.FIREBASE_TOKEN }}
+        entryPoint : ${{ env.PUBLIC_DIRECTORY }}
