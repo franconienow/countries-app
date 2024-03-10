@@ -13,6 +13,7 @@ export const Flag = styled.img`
   border-radius: 8px 8px 0 0;
   width: 100%; 
   height: 50%;
+  object-fit: cover;
 `;
 
 export const CardInfoContainer = styled.div`
